@@ -1,0 +1,32 @@
+<h1>List of All Students</h1>
+
+@model List<StudentAllList>
+
+@if (Model == null)
+{
+	<p>error</p>
+}
+else
+{
+	<table border="0">
+		<tr>
+			<th>Student ID</th>
+			<th>Name</th>
+			<th>Surname</th>
+			<th>Signed</th>
+		</tr>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.StudentId</td>
+				<td>@item.Name</td>
+				<td>@item.Surname</td>
+				<td>@item.Signed</td>
+				<td><a href ="/AllStudents/AttendanceInfo/@item.StudentId">View</a></td>
+			</tr>
+		}
+	</table>
+
+}
+
+<h4>Total number of students: 20</h4>

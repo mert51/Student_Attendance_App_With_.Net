@@ -1,0 +1,35 @@
+@model List<StudentAllList>
+
+@{
+    int AttendanceNumber = 0;
+}
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        if (item.Signed == true)
+        {
+            AttendanceNumber++;
+        }
+    }
+}
+
+<h4>Total number of attendants: @AttendanceNumber</h4>
+
+@if (ViewBag.LastStudent != null)
+{
+    var student = ViewBag.LastStudent;
+    <h3>Last Signed Student:</h3>
+    <span>@student.StudentId</span>
+    <span>@student.Name</span>
+    <span>@student.Surname</span>
+    <span> successfully signed!</span>
+
+}
+
+<br />
+<br />
+<br />
+
+<a href="http://localhost:5065">Home Page</a>

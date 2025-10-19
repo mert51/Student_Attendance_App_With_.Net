@@ -1,0 +1,61 @@
+<h1><b> STUDENT ATTENDANCE APPLICATION</b></h1>
+<h3><b>Today 12.10.2025</b></h3>
+
+@model List<StudentAllList>
+
+@{ 
+    int AttendanceNumber = 0;
+}
+
+@if (Model != null)
+{
+	foreach (var item in Model)
+	{
+		if(item.Signed == true)
+		{
+		    AttendanceNumber++;
+		}
+	}
+}
+
+<h4>Number of attendants: @AttendanceNumber</h4>
+
+<br />
+<br />
+
+<a href="http://localhost:5065/BeforeSign">Click To Sign</a>
+
+<br />
+<br />
+<a href="http://localhost:5065/AllStudents">All Students</a>
+
+<br />
+<br />
+
+<i>developer Mert Onder , B241202071</i>
+
+<h1>List of Signed Students</h1>
+
+<table>
+	<tr>
+		<th>Student ID</th>
+		<th>Name</th>
+		<th>Surname</th>
+		<th>Signed</th>
+	</tr>
+	@if (Model != null)
+	{
+		@foreach (var item in Model)
+		{
+			@if(item.Signed == true)
+			{
+				<tr>
+					<td>@item.StudentId</td>
+					<td>@item.Name</td>
+					<td>@item.Surname</td>
+					<td>@item.Signed</td>
+				</tr>
+			}
+		}
+	}
+</table>
